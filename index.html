@@ -77,32 +77,16 @@
 
 <!-- Gate Script (NO localStorage – re-locks on every page load) -->
 <script>
-  const overlay = document.getElementById('gateOverlay');
-  const mainSite = document.getElementById('mainSite');
-  const input = document.getElementById('passInput');
-  const btn = document.getElementById('unlockBtn');
-  const wrong = document.getElementById('wrongPass');
-  const PASS = 'build2025';
+  const pass = 'build2025';
+  const go   = () => document.getElementById('gateOverlay').style.display =
+                 document.getElementById('passInput').value.trim() === pass ? 'none' : 'block';
 
-  function unlock() {
-    if (input.value.trim() === PASS) {
-      overlay.style.display = 'none';
-      mainSite.style.display = 'block';
-    } else {
-      wrong.style.display = 'block';
-      input.select();
-    }
-  }
+  document.getElementById('unlockBtn').onclick = go;
+  document.getElementById('passInput').addEventListener('keyup', e => { if (e.key === 'Enter') go(); });
 
-  btn.addEventListener('click', unlock);
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.keyCode === 13) {
-      e.preventDefault();
-      unlock();
-    }
-  });
+  document.getElementById('passInput').focus();
+</script>
 
-  input.focus();
   //  NO localStorage – gate re-appears on every page load
 </script>
 </body>
