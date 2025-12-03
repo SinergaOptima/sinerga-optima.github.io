@@ -8,23 +8,22 @@
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="stylesheet" href="assets/css/main.css">
 
-  <!-- Gate styles -->
   <style>
     #gateOverlay{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
     .gate-box{max-width:420px;width:100%}
     .gate-box h2{margin-bottom:1rem;font-size:1.5rem}
     .gate-box p{margin-bottom:1.5rem;opacity:.9}
-    #passInput{width:100%;padding:.75rem;border-radius:var(--radius);border:1px solid var(--amber);background:transparent;color:var(--light);margin-bottom:1rem}
+    #passInput{width:100%;padding:.75rem;border-radius:4px;border:1px solid #FFB500;background:transparent;color:#fff;margin-bottom:1rem}
     #passInput::placeholder{color:rgba(255,255,255,.6)}
     .gate-box .btn{width:100%}
   </style>
 </head>
 
 <body>
-<!--  UNDER-CONSTRUCTION GATE  -->
+<!--  GATE  -->
 <div id="gateOverlay">
   <div class="gate-box">
-    <ion-icon name="construct-outline" style="font-size:3rem;color:var(--amber)"></ion-icon>
+    <ion-icon name="construct-outline" style="font-size:3rem;color:#FFB500"></ion-icon>
     <h2>We’re building the foundations</h2>
     <p>Enter the password to continue. (Public launch soon.)</p>
     <input id="passInput" type="password" placeholder="Password" autocomplete="off">
@@ -32,7 +31,7 @@
   </div>
 </div>
 
-<!--  REAL SITE (hidden until unlocked)  -->
+<!--  MAIN SITE  -->
 <div id="mainSite" style="display:none">
   <nav>
     <a href="/" class="logo">Sinerga-Optima</a>
@@ -41,7 +40,6 @@
       <a href="charter.html">Charter</a>
       <a href="toolkit.html">Toolkit</a>
       <a href="mailto:hello@sinerga-optima.org" class="btn">Contact</a>
-      <button id="themeToggle" class="btn" aria-label="Toggle dark mode"><ion-icon name="moon"></ion-icon></button>
     </span>
   </nav>
 
@@ -69,11 +67,9 @@
   </footer>
 </div>
 
-<!-- Scripts -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- Gate Script (button + Enter, no comments, no localStorage) -->
 <script>
   const pass = 'build2025';
   const go   = () => document.getElementById('gateOverlay').style.display =
