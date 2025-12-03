@@ -1,0 +1,9 @@
+title: Sinerga-Optima
+description: Post-capitalist upgrade path – public tech guilds, worker co-ops, carbon caps.
+baseurl: ""   # important: no sub-path
+url: "https://sinerga-optima.org"
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
