@@ -1,0 +1,46 @@
+---
+layout: default
+title:  "Manifesto"
+description: "Our 10-point foundation for a carbon-negative, plutocrat-proof society."
+---
+
+<section id="manifesto">
+  <div class="hero-content">
+    <ion-icon name="document-text-outline" class="hero-icon"></ion-icon>
+    <h1>Manifesto</h1>
+    <p class="lead">A concise foundation for a post-capitalist upgrade.</p>
+  </div>
+
+  <div class="text-wrapper">
+    <ol class="manifesto-list">
+      <li><strong>Strategic Public Guilds</strong> – Energy, finance, data, health, space, biotech & transport remain socially owned.</li>
+      <li><strong>Worker Dividend Funds</strong> – 20 % voting shares in every firm ≥ 100 employees, controlled by worker-elected trustees.</li>
+      <li><strong>Carbon Budget is Law</strong> – Annual cap declines 7 % per five-year plan; Scientific Panel lock-in.</li>
+      <li><strong>Universal Basic Services</strong> – Healthcare, K-16 education, housing assistance, public transport, internet, legal counsel—free at point of use.</li>
+      <li><strong>Capital Curtain</strong> – Large FX exit requires worker + locality + central-bank super-majority consent.</li>
+      <li><strong>Public Campaign Finance Only</strong> – Private donation or dark-money lobbying = felony with 10-year director ban.</li>
+      <li><strong>Digital Sortition Chamber</strong> – 0.5 % of citizens randomly selected each year; 90-day suspensive veto on eco-social laws.</li>
+      <li><strong>Local Commune Sovereignty</strong> – Cities keep 40 % of tax and can veto extractive projects.</li>
+      <li><strong>Innovation Commons</strong> – Publicly funded patents open-source after 3 years or compulsory licence at 2 % royalty.</li>
+      <li><strong>Land-Value Commons</strong> – Gains > CPI + 2 % taxed at 100 %; revenue funds local basic-income top-up.</li>
+    </ol>
+
+    <div class="cta">
+      <a href="/charter.html" class="btn">Read the full 38-article Charter</a>
+      <a href="mailto:hello@sinerga-optima.org" class="btn">Join the build</a>
+    </div>
+  </div>
+</section>
+
+<style>
+#manifesto{background:linear-gradient(135deg,var(--dark) 60%,var(--teal) 190%);padding:4rem 0}
+#manifesto .hero-content{text-align:center;margin-bottom:3rem}
+#manifesto .hero-icon{font-size:3.5rem;color:var(--amber)}
+#manifesto h1{margin-bottom:1rem;font-size:clamp(2rem,5vw,3rem)}
+#manifesto .lead{font-size:1.25rem;opacity:.9}
+.text-wrapper{max-width:740px;margin:auto;padding:0 1rem}
+.manifesto-list{list-style:none;counter-reset:item}
+.manifesto-list li{counter-increment:item;margin:1.2rem 0;padding-left:3rem;position:relative}
+.manifesto-list li::before{content:counter(item);position:absolute;left:0;top:.2rem;background:var(--amber);color:var(--dark);width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;font-weight:600}
+.cta{margin-top:3rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+</style>
