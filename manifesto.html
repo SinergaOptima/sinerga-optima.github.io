@@ -6,10 +6,12 @@
   <title>Manifesto | Sinerga-Optima</title>
   <meta name="description" content="Our 10-point foundation for a carbon-negative, plutocrat-proof society.">
   <link rel="icon" href="assets/img/favicon.png">
+  <!-- SAME global stylesheet as index.html -->
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
+<!-- SAME nav bar -->
 <nav>
   <a href="/" class="logo">Sinerga-Optima</a>
   <span>
@@ -17,9 +19,11 @@
     <a href="charter.html">Charter</a>
     <a href="toolkit.html">Toolkit</a>
     <a href="mailto:hello@sinerga-optima.org" class="btn">Contact</a>
+    <button id="themeToggle" class="btn" aria-label="Toggle dark mode"><ion-icon name="moon"></ion-icon></button>
   </span>
 </nav>
 
+<!-- SAME hero structure, different icon + text -->
 <main>
   <section id="hero" class="manifesto-hero">
     <ion-icon name="document-text-outline" class="hero-icon"></ion-icon>
@@ -48,15 +52,18 @@
   </section>
 </main>
 
+<!-- SAME footer -->
 <footer>
   <p>Built with HTML & CSS • <a href="https://github.com/sinergaoptima" target="_blank" rel="noopener">Source</a></p>
 </footer>
 
+<!-- SAME scripts -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script src="assets/js/main.js"></script>
 
-<!-- page-specific styles -->
+<!-- ONLY extra scoped styles -->
 <style>
-.manifesto-hero{background:linear-gradient(135deg,var(--dark) 60%,var(--teal) 190%)}
+.manifesto-hero{background:linear-gradient(135deg,var(--dark) 60%,var(--teal) 190%)} /* keeps identical gradient */
 .tagline{font-size:1.25rem;opacity:.9}
 .text-wrapper{max-width:740px;margin:auto;padding:4rem 1rem}
 .manifesto-list{list-style:none;counter-reset:item}
