@@ -72,8 +72,43 @@
 </div>
 
 <!-- Scripts -->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script src="assets/js/main.js"></script>
+<script>
+  const overlay   = document.getElementById('gateOverlay');
+  const mainSite  = document.getElementById('mainSite');
+  const input     = document.getElementById('passInput');
+  const btn       = document.getElementById('unlockBtn');
+  const wrong     = document.getElementById('wrongPass');
+  const PASS      = 'build2025';
+
+  function unlock() {
+    if (input.value.trim() === PASS) {
+      overlay.style.display   = 'none';
+      mainSite.style.display  = 'block';
+      localStorage.setItem('so-gate','open');
+    } else {
+      wrong.style.display = 'block';
+      input.select();          // highlight text for quick retry
+    }
+  }
+
+  btn.addEventListener('click', unlock);
+
+  // ENTER key on the INPUT field (not document)
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      e.preventDefault(); // stop form submission if any
+      unlock();
+    }
+  });
+
+  // focus cursor + auto-unlock
+  input.focus();
+  if (localStorage.getItem('so-gate') === 'open') {
+    overlay.style.display  = 'none';
+    mainSite.style.display = 'block';
+  }
+</script>
+
 
 <!-- Fixed Gate Script -->
 <script>
