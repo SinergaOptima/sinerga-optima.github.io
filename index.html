@@ -7,45 +7,45 @@
   <meta name="description" content="Post-capitalist upgrade path – public tech guilds, worker co-ops, carbon caps.">
   <link rel="icon" href="/assets/img/favicon.png">
 
-  <!--  COMPLETE INLINE STYLES  -->
+  <!--  TERMINAL MONOCHROME  -->
   <style>
     :root{
-      --dark:#001219;
-      --teal:#007F7F;
-      --amber:#FFB500;
-      --radius:4px;
-      --nav-height:4rem;
+      --bg:#000;
+      --fg:#808080;          /* grey */
+      --grey:#555;
+      --radius:0;
+      --font:'Courier New',Courier,monospace;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,Helvetica,Arial,sans-serif;background:var(--dark);color:#fff;line-height:1.6}
-    a{color:var(--amber);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .btn{display:inline-block;padding:.6rem 1.2rem;border:1px solid var(--amber);border-radius:var(--radius);transition:.2s;background:transparent;color:var(--amber)}
-    .btn:hover{background:var(--amber);color:var(--dark);text-decoration:none}
+    html{scroll-behavior:auto}
+    body{font-family:var(--font);background:var(--bg);color:var(--fg);line-height:1.4;text-shadow:0 0 2px var(--fg)}
+    a{color:var(--fg);text-decoration:underline}
+    a:hover{background:var(--fg);color:var(--bg);text-shadow:none}
+    .btn{display:inline-block;padding:.4rem .8rem;border:1px solid var(--fg);background:transparent;color:var(--fg);text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:none}
+    .btn:hover{background:var(--fg);color:var(--bg);text-shadow:none}
 
-    /* Gate */
-    #gateOverlay{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
-    .gate-box{max-width:420px;width:100%}
-    .gate-box h2{margin-bottom:1rem;font-size:1.5rem}
-    .gate-box p{margin-bottom:1.5rem;opacity:.9}
-    #passInput{width:100%;padding:.75rem;border-radius:var(--radius);border:1px solid var(--amber);background:transparent;color:#fff;margin-bottom:1rem}
-    #passInput::placeholder{color:rgba(255,255,255,.6)}
-    .gate-box .btn{width:100%}
+    /*  Gate  */
+    #gateOverlay{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+    .gate-box{max-width:640px;width:100%;border:2px solid var(--fg);padding:2rem;box-shadow:0 0 10px var(--fg)}
+    .gate-box h2{margin-bottom:1rem;font-size:1.5rem;text-transform:uppercase}
+    .gate-box p{margin-bottom:1.5rem;opacity:.8}
+    #passInput{width:100%;padding:.5rem;background:var(--bg);color:var(--fg);border:1px solid var(--fg);outline:none;font-family:var(--font);font-size:1rem}
+    #passInput::placeholder{color:var(--grey)}
 
-    /* Nav */
-    nav{display:flex;justify-content:space-between;align-items:center;height:var(--nav-height);padding:0 5%;background:var(--dark);border-bottom:1px solid rgba(255,181,0,.2);position:sticky;top:0;z-index:10}
+    /*  Nav  */
+    nav{display:flex;justify-content:space-between;align-items:center;height:3rem;padding:0 1rem;border-bottom:1px solid var(--fg);font-weight:bold;text-transform:uppercase}
     nav span{display:flex;gap:1rem;align-items:center}
 
-    /* Hero */
-    #hero{min-height:calc(100vh - var(--nav-height));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--dark) 60%,var(--teal) 190%);padding:2rem 0}
-    .hero-icon{font-size:4rem;color:var(--amber);margin-bottom:1rem}
-    #hero h1{margin-bottom:1rem;font-size:clamp(2.5rem,5vw,3.5rem)}
-    #hero p{margin-bottom:1.5rem;font-size:1.2rem;opacity:.9}
-    #hero strong{display:block;margin-bottom:2rem;font-size:1.1rem}
+    /*  Hero  */
+    #hero{min-height:calc(100vh - 3rem);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;border:1px solid var(--fg);margin:1rem;box-shadow:inset 0 0 10px var(--fg)}
+    .hero-icon{font-size:4rem;color:var(--fg);text-shadow:0 0 5px var(--fg)}
+    #hero h1{margin-bottom:1rem;font-size:clamp(2rem,5vw,3rem);text-transform:uppercase;letter-spacing:2px}
+    #hero p{margin-bottom:1.5rem;font-size:1.1rem;opacity:.9}
+    #hero strong{display:block;margin-bottom:2rem;font-size:1rem;opacity:.8}
     #hero .social{display:flex;gap:1rem;justify-content:center}
 
-    /* Footer */
-    footer{text-align:center;padding:2rem 0;font-size:.9rem;opacity:.7}
+    /*  Footer  */
+    footer{text-align:center;padding:1.5rem 0;font-size:.8rem;opacity:.7;border-top:1px solid var(--grey)}
   </style>
 </head>
 
@@ -53,7 +53,7 @@
 <!--  GATE  -->
 <div id="gateOverlay">
   <div class="gate-box">
-    <ion-icon name="construct-outline" style="font-size:3rem;color:#FFB500"></ion-icon>
+    <ion-icon name="construct-outline" style="font-size:3rem;color:#808080"></ion-icon>
     <h2>We’re building the foundations</h2>
     <p>Enter the password to continue. (Public launch soon.)</p>
     <input id="passInput" type="password" placeholder="Password" autocomplete="off">
@@ -62,17 +62,16 @@
 </div>
 
 <!--  MAIN SITE  -->
-<nav>
-  <a href="/" class="logo">Sinerga-Optima</a>
-  <span>
-    <a href="manifesto.html">Manifesto</a>
-    <a href="charter.html">Charter</a>
-    <a href="toolkit.html">Toolkit</a>
-    <a href="mailto:hello@sinerga-optima.org" class="btn">Contact</a>
-    <button id="themeToggle" class="btn" aria-label="Toggle dark mode"><ion-icon name="moon"></ion-icon></button>
-  </span>
-</nav>
-
+<div id="mainSite" style="display:none">
+  <nav>
+    <a href="/" class="logo">Sinerga-Optima</a>
+    <span>
+      <a href="/manifesto.html">Manifesto</a>
+      <a href="/charter.html">Charter</a>
+      <a href="/toolkit.html">Toolkit</a>
+      <a href="mailto:hello@sinerga-optima.org" class="btn">Contact</a>
+    </span>
+  </nav>
 
   <main>
     <section id="hero">
@@ -101,7 +100,6 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="/assets/js/main.js"></script>
 
-<!-- Button-Only Unlock -->
 <script>
   document.getElementById('unlockBtn').onclick = () => {
     if (document.getElementById('passInput').value.trim() === 'build2025') {
