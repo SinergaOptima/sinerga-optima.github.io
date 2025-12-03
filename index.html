@@ -10,14 +10,32 @@
 
   <!-- Gate styles -->
   <style>
-    #gateOverlay{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
-    .gate-box{max-width:420px;width:100%}
-    .gate-box h2{margin-bottom:1rem;font-size:1.5rem}
-    .gate-box p{margin-bottom:1.5rem;opacity:.9}
-    #passInput{width:100%;padding:.75rem;border-radius:4px;border:1px solid #FFB500;background:transparent;color:#fff;margin-bottom:1rem}
-    #passInput::placeholder{color:rgba(255,255,255,.6)}
-    .gate-box .btn{width:100%}
-  </style>
+  :root{
+    --dark:#001219;
+    --teal:#007F7F;
+    --amber:#FFB500;
+    --radius:4px;
+  }
+  #gateOverlay{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem}
+  .gate-box{max-width:420px;width:100%}
+  .gate-box h2{margin-bottom:1rem;font-size:1.5rem}
+  .gate-box p{margin-bottom:1.5rem;opacity:.9}
+  #passInput{width:100%;padding:.75rem;border-radius:var(--radius);border:1px solid var(--amber);background:transparent;color:#fff;margin-bottom:1rem}
+  #passInput::placeholder{color:rgba(255,255,255,.6)}
+  .gate-box .btn{width:100%;background:var(--amber);color:var(--dark);border:1px solid var(--amber)}
+  #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,var(--dark) 60%,var(--teal) 190%);padding:2rem 0}
+  .hero-icon{font-size:4rem;color:var(--amber);margin-bottom:1rem}
+  #hero h1{margin-bottom:1rem;font-size:clamp(2.5rem,5vw,3.5rem)}
+  #hero p{margin-bottom:1.5rem;font-size:1.2rem;opacity:.9}
+  #hero strong{display:block;margin-bottom:2rem;font-size:1.1rem}
+  #hero .social{display:flex;gap:1rem;justify-content:center}
+  nav{display:flex;justify-content:space-between;align-items:center;height:4rem;padding:0 5%;background:var(--dark);border-bottom:1px solid rgba(255,181,0,.2);position:sticky;top:0;z-index:10}
+  nav span{display:flex;gap:1rem;align-items:center}
+  footer{text-align:center;padding:2rem 0;font-size:.9rem;opacity:.7}
+  .btn{display:inline-block;padding:.6rem 1.2rem;border:1px solid var(--amber);border-radius:var(--radius);transition:.2s;text-decoration:none}
+  .btn:hover{background:var(--amber);color:var(--dark)}
+</style>
+
 </head>
 
 <body>
