@@ -17,7 +17,6 @@
     #passInput{width:100%;padding:.75rem;border-radius:var(--radius);border:1px solid var(--amber);background:transparent;color:var(--light);margin-bottom:1rem}
     #passInput::placeholder{color:rgba(255,255,255,.6)}
     .gate-box .btn{width:100%}
-    #wrongPass{color:var(--amber);margin-top:.5rem;display:none}
   </style>
 </head>
 
@@ -30,7 +29,6 @@
     <p>Enter the password to continue. (Public launch soon.)</p>
     <input id="passInput" type="password" placeholder="Password" autocomplete="off">
     <button id="unlockBtn" class="btn">Enter Site</button>
-    <div id="wrongPass">Incorrect password – try again.</div>
   </div>
 </div>
 
@@ -75,7 +73,7 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script src="assets/js/main.js"></script>
 
-<!-- Gate Script (NO localStorage – re-locks on every page load) -->
+<!-- Gate Script (button + Enter, no comments, no localStorage) -->
 <script>
   const pass = 'build2025';
   const go   = () => document.getElementById('gateOverlay').style.display =
@@ -85,8 +83,6 @@
   document.getElementById('passInput').addEventListener('keyup', e => { if (e.key === 'Enter') go(); });
 
   document.getElementById('passInput').focus();
-</script>
-
 </script>
 </body>
 </html>
