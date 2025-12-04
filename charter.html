@@ -379,7 +379,6 @@
 .charter-list li{margin:1.2rem 0;padding-left:3rem;position:relative;min-height:2rem}
 .article-number{position:absolute;left:0;top:-0.3rem;background:var(--amber);color:var(--dark);width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;line-height:1;flex-shrink:0}
 .expandable-article.is-expanded .article-number{display:none}
-.expandable-article.is-expanded ~ li .article-number{display:none}
 .charter-list li.expandable-article .article-content ~ *{position:relative;z-index:1}
 .expandable-article{position:relative;z-index:2}
 .expandable-article .article-content{position:relative;z-index:100;isolation:isolate}
@@ -400,21 +399,24 @@
 function toggleArticle(articleNum) {
   const content = document.getElementById('art-' + articleNum + '-content');
   const article = document.getElementById('art-' + articleNum);
+  const isCurrentlyExpanded = article.classList.contains('is-expanded');
   
-  // Remove is-expanded from all articles first
+  // If this article is already expanded, close it
+  if (isCurrentlyExpanded) {
+    content.style.display = 'none';
+    article.classList.remove('is-expanded');
+    return;
+  }
+  
+  // Otherwise, close all other articles and open this one
   document.querySelectorAll('.expandable-article').forEach(el => {
     el.classList.remove('is-expanded');
     const cont = el.querySelector('.article-content');
     if (cont) cont.style.display = 'none';
   });
   
-  if (content.style.display === 'none' || !article.classList.contains('is-expanded')) {
-    content.style.display = 'block';
-    article.classList.add('is-expanded');
-  } else {
-    content.style.display = 'none';
-    article.classList.remove('is-expanded');
-  }
+  content.style.display = 'block';
+  article.classList.add('is-expanded');
 }
 </script>
 </body>
