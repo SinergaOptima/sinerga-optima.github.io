@@ -387,7 +387,8 @@
 /* Expandable article styling */
 .expandable-article .article-title{cursor:pointer;user-select:none}
 .expandable-article .article-title:hover{text-decoration:underline}
-.expandable-article .article-content{margin-top:1rem;margin-left:-3rem;padding:1.5rem;padding-left:4.5rem;background:#000!important;border-left:2px solid var(--amber);border-radius:4px;position:relative;z-index:1000;box-shadow:0 0 20px rgba(0,0,0,0.9);overflow:visible}
+.expandable-article .article-content{margin-top:1rem;margin-left:-3rem;padding:1.5rem;padding-left:4.5rem;background:#000!important;border-left:2px solid var(--amber);border-radius:4px;position:relative;z-index:1000;box-shadow:0 0 20px rgba(0,0,0,0.9);overflow:hidden;max-height:0;opacity:0;transition:max-height 0.4s ease-in-out,opacity 0.3s ease-in-out,margin-top 0.3s ease-in-out,padding 0.3s ease-in-out}
+.expandable-article.is-expanded .article-content{max-height:5000px;opacity:1;margin-top:1rem;padding:1.5rem;padding-left:4.5rem}
 .expandable-article.is-expanded .article-content::before{content:'';position:absolute;left:-3rem;top:-50rem;width:3rem;height:calc(100% + 100rem);background:#000!important;z-index:1001;pointer-events:none}
 .expandable-article .article-content h1{font-size:1.5rem;margin-bottom:1rem;color:var(--amber)}
 .expandable-article .article-content ul{list-style:disc;margin-left:1.5rem;padding-left:1rem}
@@ -403,19 +404,31 @@ function toggleArticle(articleNum) {
   
   // If this article is already expanded, close it
   if (isCurrentlyExpanded) {
-    content.style.display = 'none';
     article.classList.remove('is-expanded');
+    // Wait for animation to complete before hiding
+    setTimeout(() => {
+      content.style.display = 'none';
+    }, 400);
     return;
   }
   
   // Otherwise, close all other articles and open this one
   document.querySelectorAll('.expandable-article').forEach(el => {
-    el.classList.remove('is-expanded');
-    const cont = el.querySelector('.article-content');
-    if (cont) cont.style.display = 'none';
+    if (el !== article) {
+      el.classList.remove('is-expanded');
+      const cont = el.querySelector('.article-content');
+      if (cont) {
+        setTimeout(() => {
+          cont.style.display = 'none';
+        }, 400);
+      }
+    }
   });
   
+  // Show content before adding expanded class for animation
   content.style.display = 'block';
+  // Force reflow to ensure display change is applied
+  content.offsetHeight;
   article.classList.add('is-expanded');
 }
 </script>

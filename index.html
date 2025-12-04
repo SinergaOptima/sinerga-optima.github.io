@@ -101,12 +101,21 @@
 
 <!-- Button-Only Unlock -->
 <script>
-  document.getElementById('unlockBtn').onclick = () => {
+  function unlockSite() {
     if (document.getElementById('passInput').value.trim() === 'build2025') {
       document.getElementById('gateOverlay').style.display = 'none';
       document.getElementById('mainSite').style.display = 'block';
     }
-  };
+  }
+  
+  document.getElementById('unlockBtn').onclick = unlockSite;
+  
+  document.getElementById('passInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      unlockSite();
+    }
+  });
+  
   document.getElementById('passInput').focus();
 </script>
 </body>
